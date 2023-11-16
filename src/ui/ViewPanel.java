@@ -72,8 +72,18 @@ public class ViewPanel extends javax.swing.JPanel  {
         exportButton.setText("Export");
 
         deleteButton.setText("DELETE");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setText("EDIT");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         userTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,6 +188,7 @@ public class ViewPanel extends javax.swing.JPanel  {
     }
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
@@ -194,6 +205,36 @@ public class ViewPanel extends javax.swing.JPanel  {
         JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedIdx = userTable.getSelectedRow();
+        if (selectedIdx == -1){
+            JOptionPane.showMessageDialog(this, "Please selected a user to delete", "Cannot delete User",WIDTH);
+            return;
+        }
+        try{
+            selectedUser = users.get(selectedIdx);
+            DatabaseConnector.deleteUser(selectedUser);
+            JOptionPane.showMessageDialog(null, "User Deleted Successfully", "Successfully Deleted", HEIGHT);
+            clearFields();
+            populateTable();
+        }catch(Exception e){
+        JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedIdx = userTable.getSelectedRow();
+        if (selectedIdx == -1){
+            JOptionPane.showMessageDialog(this, "Please select a user to edit", "Edit Users", HEIGHT);
+            return;
+        }
+        selectedUser = users.get(selectedIdx);
+        nameField.setText(selectedUser.getName());
+        ageField.setText(Integer.toString(selectedUser.getAge()));
+    }//GEN-LAST:event_editButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
