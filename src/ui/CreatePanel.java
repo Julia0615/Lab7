@@ -37,6 +37,8 @@ public class CreatePanel extends javax.swing.JPanel {
         ageField = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(700, 440));
+
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel1.setText("User Form");
 
