@@ -18,7 +18,7 @@ import model.User;
  * @author bahatizhuliduosi
  */
 public class DatabaseConnector {
-    private static final String URL = "jdbc:mysql://localhost:3306/test?useSSL = false";
+    private static final String URL = "jdbc:mysql://localhost:3306/New?useSSL = false";
     
     
     private static final String USERNAME = "root";
@@ -54,6 +54,7 @@ public class DatabaseConnector {
                 User u = new User();
                 u.setName(rs.getString("name"));
                 u.setAge(rs.getInt("age"));
+                u.setId(rs.getInt("id"));
                 users.add(u);
                         
             }

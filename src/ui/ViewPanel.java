@@ -197,10 +197,12 @@ public class ViewPanel extends javax.swing.JPanel  {
         try{
             newUser.setAge(Integer.parseInt(ageField.getText()));
             newUser.setName(nameField.getText());
-            DatabaseConnector.addUser(newUser);
+            
+            DatabaseConnector.editUser(selectedUser,newUser);
             JOptionPane.showConfirmDialog(null, "User Register succesfully", "Successfully Registration", WIDTH);
              
             clearFields();
+            populateTable();
         }catch(Exception e){
         JOptionPane.showMessageDialog(this, e.getMessage());
         }
