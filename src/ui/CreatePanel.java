@@ -115,7 +115,22 @@ public class CreatePanel extends javax.swing.JPanel {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
+        User newUser = new User();
+        try{
+            newUser.setAge(Integer.parseInt(ageField.getText()));
+            newUser.setName(nameField.getText());
+            DatabaseConnector.addUser(newUser);
+            JOptionPane.showConfirmDialog(null, "User Register succesfully", "Successfully Registration", WIDTH);
+             
+            cleanup();
+        }catch(Exception e){
+        JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_submitButtonActionPerformed
+    public void cleanup(){
+        nameField.setText("");
+        ageField.setText("");
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
