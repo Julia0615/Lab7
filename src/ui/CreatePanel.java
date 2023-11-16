@@ -35,7 +35,7 @@ public class CreatePanel extends javax.swing.JPanel {
         ageLabel = new javax.swing.JLabel();
         nameField = new javax.swing.JTextField();
         ageField = new javax.swing.JTextField();
-        submitButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(700, 440));
 
@@ -58,10 +58,10 @@ public class CreatePanel extends javax.swing.JPanel {
             }
         });
 
-        submitButton.setText("Submit");
-        submitButton.addActionListener(new java.awt.event.ActionListener() {
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitButtonActionPerformed(evt);
+                saveButtonActionPerformed(evt);
             }
         });
 
@@ -85,7 +85,7 @@ public class CreatePanel extends javax.swing.JPanel {
                             .addComponent(ageField, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
-                        .addComponent(submitButton)))
+                        .addComponent(saveButton)))
                 .addContainerGap(254, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -102,7 +102,7 @@ public class CreatePanel extends javax.swing.JPanel {
                     .addComponent(ageLabel)
                     .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(101, 101, 101)
-                .addComponent(submitButton)
+                .addComponent(saveButton)
                 .addContainerGap(135, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -115,7 +115,7 @@ public class CreatePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ageFieldActionPerformed
 
-    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
         User newUser = new User();
         try{
@@ -128,7 +128,7 @@ public class CreatePanel extends javax.swing.JPanel {
         }catch(Exception e){
         JOptionPane.showMessageDialog(this, e.getMessage());
         }
-    }//GEN-LAST:event_submitButtonActionPerformed
+    }//GEN-LAST:event_saveButtonActionPerformed
     public void cleanup(){
         nameField.setText("");
         ageField.setText("");
@@ -141,6 +141,6 @@ public class CreatePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JButton submitButton;
+    private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }
